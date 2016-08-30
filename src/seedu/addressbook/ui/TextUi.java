@@ -135,9 +135,7 @@ public class TextUi {
      */
     private void showPersonListView(List<? extends ReadOnlyPerson> persons) {
         final List<String> formattedPersons = new ArrayList<>();
-        for (ReadOnlyPerson person : persons) {
-            formattedPersons.add(person.getAsTextHidePrivate());
-        }
+        Formatter.formatPersons(persons, formattedPersons);
         showToUserAsIndexedList(formattedPersons);
     }
 

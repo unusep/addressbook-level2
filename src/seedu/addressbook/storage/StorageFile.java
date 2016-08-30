@@ -84,8 +84,20 @@ public class StorageFile {
      * @throws StorageOperationException if there were errors converting and/or storing data to file.
      */
     public void save(AddressBook addressBook) throws StorageOperationException {
+    	int saveAttempts = 2;
+        save(addressBook, 2);
+    }
 
-        /* Note: Note the 'try with resource' statement below.
+    /**
+     * internal method to save address book to file. 
+     * takes in an addressbook and the number of save attempts left to try.
+     * tries to save the addressBook to the file (given by path) attemptsLeft times
+     * @param addressBook
+     * @param attemptsLeft
+     * @throws StorageOperationException
+     */
+	private void save(AddressBook addressBook, int attemptsLeft) throws StorageOperationException {
+		/* Note: Note the 'try with resource' statement below.
          * More info: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
          */
         try (final Writer fileWriter =
@@ -95,13 +107,21 @@ public class StorageFile {
             final Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.marshal(toSave, fileWriter);
-
+        } catch (FileNotFoundException fnfe) {
+        	// handle exception when file has been deleted
+    		if (attemptsLeft === 0){
+                throw new StorageOperationException("Error finding the file: "+ path + 
+                		" Could the file have been deleted?");
+    		} else {
+    			new File(path.toUri());
+    			save(addressBook, attemptsLeft - 1);
+    		}
         } catch (IOException ioe) {
             throw new StorageOperationException("Error writing to file: " + path);
         } catch (JAXBException jaxbe) {
             throw new StorageOperationException("Error converting address book into storage format");
         }
-    }
+	}
 
     /**
      * Loads data from this storage file.

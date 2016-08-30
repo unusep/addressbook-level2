@@ -20,6 +20,9 @@ public class TextUi {
     /** A decorative prefix added to the beginning of lines printed by AddressBook */
     private static final String LINE_PREFIX = "|| ";
 
+    /** Offset required to convert between 1-indexing and 0-indexing.  */
+    public static final int DISPLAYED_INDEX_OFFSET = 1;
+    
     /** A platform independent line separator. */
     private static final String LS = System.lineSeparator();
 

@@ -71,6 +71,14 @@ public class Name {
      * 4) They fit any of the above categories disregarding commas 
      */
      public boolean isSimilar(Name other) { 
+    	 if (other == null){
+    		 return false;
+    	 } else {
+    		 String regexGetOnlyWords = "[\\W]";
+    		 String[] thisName = this.fullName.toLowerCase().split(regexGetOnlyWords);
+    		 String[] otherName = other.fullName.toLowerCase().split(regexGetOnlyWords);
+    		 return isSimilar(thisName, otherName);
+    	 }
     	 return false;
      }
 

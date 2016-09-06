@@ -78,7 +78,7 @@ public class Name {
     	 if (other == null){
     		 return false;
     	 } else {
-    		 String regexGetOnlyWords = "[\\W]";
+    		 String regexGetOnlyWords = "([^a-zA-Z']+)'*\\1*";
     		 String[] thisName = this.fullName.toLowerCase().split(regexGetOnlyWords);
     		 String[] otherName = other.fullName.toLowerCase().split(regexGetOnlyWords);
     		 return isExactlyTheSame(thisName, otherName) ||

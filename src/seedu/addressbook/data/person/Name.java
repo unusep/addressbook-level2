@@ -96,8 +96,9 @@ public class Name {
      * @return similarity boolean
      */
 	private boolean isPermutation(String[] thisName, String[] otherName) {
-		// TODO Auto-generated method stub
-		return false;
+		Arrays.sort(thisName);
+		Arrays.sort(otherName);
+		return isExactlyTheSame(thisName, otherName);
 	}
 	
     /**

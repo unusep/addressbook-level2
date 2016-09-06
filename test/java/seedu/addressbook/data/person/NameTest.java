@@ -23,8 +23,10 @@ public class NameTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void isSimilarCapitalisation() {
+		boolean result = john.isSimilar(johnWithCapitalisation);
+		assertTrue(result);
 	}
+	
 
 }

@@ -11,6 +11,7 @@ public class NameTest {
 	private Name johnWithCapitalisation;
 	private Name johnWithoutK;
 	private Name johnPermutation;
+	private Name johnWithCommas;
 	private Name mary;
 	
 	@Before
@@ -19,6 +20,7 @@ public class NameTest {
 		johnWithCapitalisation = new Name("John K SMITh");
 		johnWithoutK = new Name("John Smith");
 		johnPermutation = new Name("Smith, John K");
+		johnWithCommas = new Name("John K, Smith");
 		mary = new Name("Mary");
 	}
 
@@ -39,10 +41,17 @@ public class NameTest {
 		boolean result = john.isSimilar(johnPermutation);
 		assertTrue(result);
 	}
+
+	@Test
+	public void isSimilarPunctuations() {
+		boolean result = john.isSimilar(johnWithCommas);
+		assertTrue(result);
+	}
 	
 	@Test
 	public void isSimilarDifferentName() {
 		boolean result = john.isSimilar(mary);
 		assertFalse(result);
 	}
+	
 }

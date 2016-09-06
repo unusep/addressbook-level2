@@ -60,4 +60,10 @@ public class NameTest {
 		assertFalse(result);
 	}
 	
+	@Test
+	public void isSimilarExactlySame() {
+		boolean result = john.isSimilar(john);
+		assertTrue(result);
+	}
+	
 }

@@ -77,10 +77,25 @@ public class Name {
     		 String regexGetOnlyWords = "[\\W]";
     		 String[] thisName = this.fullName.toLowerCase().split(regexGetOnlyWords);
     		 String[] otherName = other.fullName.toLowerCase().split(regexGetOnlyWords);
-    		 return isExactlyTheSame(nameA, nameB) ||
-    				 isSameDisregardingOmission(nameA, nameB) ||
-    				 isPermutation(nameA, nameB);
+    		 return isExactlyTheSame(thisName, otherName) ||
+    				 isSameDisregardingOmission(thisName, otherName) ||
+    				 isPermutation(thisName, otherName);
     	 }
      }
+
+	private boolean isPermutation(String[] thisName, String[] otherName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private boolean isSameDisregardingOmission(String[] thisName, String[] otherName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private boolean isExactlyTheSame(String[] thisName, String[] otherName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
      
 }

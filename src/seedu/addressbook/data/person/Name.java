@@ -77,9 +77,10 @@ public class Name {
     		 String regexGetOnlyWords = "[\\W]";
     		 String[] thisName = this.fullName.toLowerCase().split(regexGetOnlyWords);
     		 String[] otherName = other.fullName.toLowerCase().split(regexGetOnlyWords);
-    		 return isSimilar(thisName, otherName);
+    		 return isExactlyTheSame(nameA, nameB) ||
+    				 isSameDisregardingOmission(nameA, nameB) ||
+    				 isPermutation(nameA, nameB);
     	 }
-    	 return false;
      }
-
+     
 }

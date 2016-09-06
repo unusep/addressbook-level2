@@ -102,15 +102,23 @@ public class Name {
 	
     /**
      * Returns true if two names, given in string arrays split by words, are 
-     * the same except for some omissions
+     * the same except for some omissions in the second name
+     * Example: ["john", "john", "smith"] is similar to ["john", "smith"]
      * 
      * @param thisName the first name given in string array
      * @param otherName the second name given in string array
      * @return similarity boolean
      */
 	private boolean isSameDisregardingOmission(String[] thisName, String[] otherName) {
-		// TODO Auto-generated method stub
-		return false;
+		int lengthThisName = thisName.length;
+		int lengthOtherName = otherName.length;
+		int matches = 0;
+		for (int i = 0; i < lengthThisName; i++){
+			if (thisName[i].equals(otherName[matches])){
+				matches++;
+			}
+		}
+		return matches == lengthOtherName;
 	}
 	
     /**

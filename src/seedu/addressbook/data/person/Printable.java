@@ -1,6 +1,6 @@
 package seedu.addressbook.data.person;
 
-public interface IPrintable {
+public interface Printable {
 	/**
 	 * @return string representing a the printable string of each object
 	 */

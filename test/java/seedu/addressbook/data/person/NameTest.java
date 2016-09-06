@@ -54,4 +54,10 @@ public class NameTest {
 		assertFalse(result);
 	}
 	
+	@Test
+	public void isSimilarNull() {
+		boolean result = john.isSimilar(null);
+		assertFalse(result);
+	}
+	
 }

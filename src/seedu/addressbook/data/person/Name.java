@@ -122,8 +122,15 @@ public class Name {
      * @return similarity boolean
      */
 	private boolean isExactlyTheSame(String[] thisName, String[] otherName) {
-		// TODO Auto-generated method stub
-		return false;
+		if (thisName.length == otherName.length){
+			boolean result = true;
+			for (int i = 0; i < thisName.length; i++){
+				result &= thisName[i].equals(otherName[i]);
+			}
+			return result;
+		} else {
+			return false;
+		}
 	}
      
 }

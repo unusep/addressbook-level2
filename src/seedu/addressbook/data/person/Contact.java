@@ -3,10 +3,17 @@ package seedu.addressbook.data.person;
 public class Contact {
     public final String value;
     private boolean isPrivate;
-    
+
     public Contact(String value, boolean isPrivate){
     	this.value = value;
     	this.isPrivate = isPrivate;
+    }
+
+    /**
+     * Checks if a given string is a valid person email.
+     */
+    public static boolean isValidEmail(String test, String regex) {
+        return test.matches(regex);
     }
 
     @Override

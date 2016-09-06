@@ -64,11 +64,15 @@ public class Name {
     /**
      * Returns true if the other name is very similar to this name.
      * Returns false if the names are dissimilar or one of the names is null.
+     * 
      * Two names are considered similar if 
      * 1) They are exactly the same except for differences in capitalisation
      * 2) They are the same except for omission in any one part of the name (John Smith similar to John K Smith)
      * 3) They are permutations of each other (John K Smith similar to Smith John K)
      * 4) They fit any of the above categories disregarding commas 
+     * 
+     * @param other		the other name to compare with
+     * @return similarity boolean
      */
      public boolean isSimilar(Name other) { 
     	 if (other == null){
@@ -83,16 +87,40 @@ public class Name {
     	 }
      }
 
+    /**
+     * Returns true if two names, given in string arrays split by words, are 
+     * permutations of each other
+     * 
+     * @param thisName the first name given in string array
+     * @param otherName the second name given in string array
+     * @return similarity boolean
+     */
 	private boolean isPermutation(String[] thisName, String[] otherName) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	
+    /**
+     * Returns true if two names, given in string arrays split by words, are 
+     * the same except for some omissions
+     * 
+     * @param thisName the first name given in string array
+     * @param otherName the second name given in string array
+     * @return similarity boolean
+     */
 	private boolean isSameDisregardingOmission(String[] thisName, String[] otherName) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	
+    /**
+     * Returns true if two names, given in string arrays split by words, are
+     * exactly the same (contains the same words in the same order)
+     * 
+     * @param thisName the first name given in string array
+     * @param otherName the second name given in string array
+     * @return similarity boolean
+     */
 	private boolean isExactlyTheSame(String[] thisName, String[] otherName) {
 		// TODO Auto-generated method stub
 		return false;

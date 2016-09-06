@@ -61,7 +61,6 @@ public class Email implements Printable {
 
 	@Override
 	public String getPrintableString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Email: " + this.toString();
 	}
 }

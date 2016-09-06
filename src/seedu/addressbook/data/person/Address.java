@@ -58,7 +58,6 @@ public class Address implements Printable {
 
 	@Override
 	public String getPrintableString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Address: " + this.toString();
 	}
 }

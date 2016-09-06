@@ -28,5 +28,9 @@ public class NameTest {
 		assertTrue(result);
 	}
 	
-
+	@Test
+	public void isSimilarOmission() {
+		boolean result = john.isSimilar(johnWithoutK);
+		assertTrue(result);
+	}
 }

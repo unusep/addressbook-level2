@@ -39,4 +39,10 @@ public class NameTest {
 		boolean result = john.isSimilar(johnPermutation);
 		assertTrue(result);
 	}
+	
+	@Test
+	public void isSimilarDifferentName() {
+		boolean result = john.isSimilar(mary);
+		assertFalse(result);
+	}
 }
